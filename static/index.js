@@ -124,7 +124,7 @@ function gameRestart() {
     _gameScore = 0;
     _gameOver = false;
     _gameStart = false;
-    _gameTimeNum = 20;
+    _gameTimeNum = 60;
     GameTimeLayer.innerHTML = creatTimeText(_gameTimeNum);
     countBlockSize();
     refreshGameLayer(GameLayer[0]);
@@ -134,7 +134,7 @@ function gameRestart() {
 function gameStart() {
     _date1 = new Date();
     _gameStart = true;
-    _gameTime = setInterval(gameTime, 1000);
+    _gameTime = setInterval(gameTime, 3000);
 }
 
 function gameOver() {
@@ -339,8 +339,7 @@ function backBtn() {
 function shareText(score) {
     let date2 = new Date();
     deviation_time = (date2.getTime() - _date1.getTime())
-    if (deviation_time > 23000) {
-        return '倒计时多了' + ((deviation_time / 1000) - 20).toFixed(2) + "s";
+    
     }
     SubmitResults();
     if (score <= 30) return '鸡你太美';
